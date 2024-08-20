@@ -15,10 +15,35 @@ void setup()
     pinMode(PIN_BUTTON_1 + i, INPUT);
     pressed[i] = false;
   }
+  pinMode(A1, INPUT);
+  pinMode(A2, INPUT);
 }
 
 void loop() 
 {
+  // Check for octave switching buttons
+  if (digitalRead(A2) == HIGH && startingNote > 12)
+  {
+    for(int i = 0; i < NUM_BUTTONS; i++)
+    {
+        MIDImessage(noteOFF, startingNote + i, velocity); // Send MIDI note off
+        pressed[i] = false; // Update the state
+    }
+    startingNote = startingNote - 12;
+    while(digitalRead(A2) == HIGH){delay(10);}
+  }
+
+  if (digitalRead(A1) == HIGH && startingNote < 84)
+  {
+    for(int i = 0; i < NUM_BUTTONS; i++)
+    {
+        MIDImessage(noteOFF, startingNote + i, velocity); // Send MIDI note off
+        pressed[i] = false; // Update the state
+    }
+    startingNote = startingNote + 12;
+    while(digitalRead(A1) == HIGH){delay(10);}
+  }
+
   // Check the state of each button
   for (int i = 0; i < NUM_BUTTONS; i++) 
   {
