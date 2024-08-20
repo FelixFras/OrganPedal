@@ -9,3 +9,5 @@ I connected wires from every pedal into the arduino throught a pull down resisto
 The program checks constantly whether a button is pressed or let go. If a pedal is being pressed a midi note start signal for the right key is being sent through the output. When the pedal is no longer being pressed a midi note stop signal is being sent.  
 The octave switching button will stop all midi notes and will then change the octave either one octave higher or lower.  
 The while loops and delays are there to prevent bouncing.
+
+![/midiorgan.jpg]
