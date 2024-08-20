@@ -10,4 +10,4 @@ The program checks constantly whether a button is pressed or let go. If a pedal 
 The octave switching button will stop all midi notes and will then change the octave either one octave higher or lower.  
 The while loops and delays are there to prevent bouncing.
 
-![/midiorgan.jpg]
+![project image](/midiorgan.jpg)
